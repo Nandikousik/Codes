@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int n;
+    int n,temp;
     cin>>n;
 
     int A[n];
@@ -14,13 +14,15 @@ int main()
         cin>>A[i];
     }
 
-    for(int i=0;i<n-1;i++)
+    for(int i=0;i<n;i++)
     {
-        for(int j=0;j<n-i-1;j++)
+        for(int j=i+1;j<n;j++)
         {
-            if(A[j]>A[j+1])
+            if(A[i]>A[j])
             {
-                swap(A[j],A[j+1]); //Though last element is already sorted in every iteration.
+                temp=A[i];
+                A[i]=A[j];
+                A[j]=temp;
             }
         }
     }
